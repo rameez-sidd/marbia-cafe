@@ -13,7 +13,8 @@ export type MenuCategoryId =
   | "dessert"
   | "nibble"
   | "dumplings"
-  | "oriental";
+  | "oriental"
+  | "mains";
 
 export type MenuItem = {
   id: string;
