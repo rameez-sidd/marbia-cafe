@@ -13,8 +13,7 @@ export type MenuCategoryId =
   | "dessert"
   | "nibble"
   | "dumplings"
-  | "oriental"
-  | "mains";
+  | "oriental";
 
 export type MenuItem = {
   id: string;
@@ -51,7 +50,7 @@ export const menuCategories: MenuCategory[] = [
   { id: "oriental", name: "Oriental" },
 ];
 
-export const initialMenuItems: MenuItem[] = [
+export const menuItems = [
   {
     id: "musaakhan-chicken",
     categoryId: "mains",
@@ -649,5 +648,10 @@ export const initialMenuItems: MenuItem[] = [
     name: "Korean Honey Fried Chicken",
     price: 425,
   },
-].map((item) => ({ available: true, ...item }));
+] as const;
+
+export const initialMenuItems: MenuItem[] = menuItems.map((item) => ({
+    ...item,
+    available: true
+}))
 
